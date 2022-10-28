@@ -3,8 +3,16 @@
 namespace Tw\Devhelper\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Tw\Devhelper\Domain\Model\Configuration;
+use Tw\Devhelper\FileTypes\Locallang;
+use Tw\Devhelper\FileTypes\Model;
+use Tw\Devhelper\FileTypes\Sql;
+use Tw\Devhelper\FileTypes\Tca;
+use Tw\Devhelper\Service\FileWriterService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -27,10 +35,26 @@ use Symfony\Component\Console\Output\OutputInterface;
 class AddFieldCommand extends Command
 {
     /**
+     * @var FileWriterService
+     */
+    protected $fileWriterService = null;
+
+    public function __construct(string $name = null, FileWriterService $fileWriterService)
+    {
+        parent::__construct($name);
+        $this->fileWriterService = $fileWriterService;
+    }
+
+    /**
      * Configure command
      */
     protected function configure()
     {
+        $this->addArgument('extensionKey', InputArgument::REQUIRED, 'Extension Key of your extension');
+        $this->addArgument('model', InputArgument::REQUIRED, 'Name of the model');
+        $this->addArgument('field', InputArgument::REQUIRED, 'Name of the field');
+        $this->addArgument('type', InputArgument::REQUIRED, 'Name of the type');
+        $this->addArgument('labels', InputArgument::REQUIRED, 'Labels');
         $this->setDescription('adds a field to a given model inkl. tca, sql, attributes etc.');
     }
 
@@ -39,7 +63,14 @@ class AddFieldCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        echo 'hello world';
+        $this->fileWriterService->registerFileType(Sql::class);
+        //$this->fileWriterService->registerFileType(Model::class);
+        //$this->fileWriterService->registerFileType(Tca::class);
+        //$this->fileWriterService->registerFileType(Locallang::class);
+
+        /** @var Configuration $configuration */
+        $configuration = GeneralUtility::makeInstance(Configuration::class, $input);
+        $this->fileWriterService->writeAllFiles($configuration);
 
         return 0;
     }

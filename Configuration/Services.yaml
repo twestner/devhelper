@@ -12,4 +12,5 @@ services:
       - name: 'console.command'
         command: 'devhelper:addfield'
         description: 'adds a field to a given model inkl. tca, sql, attributes etc.'
-
+    arguments:
+      $fileWriterService: '@Tw\Devhelper\Service\FileWriterService'
