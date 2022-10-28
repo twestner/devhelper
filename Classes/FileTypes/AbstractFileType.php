@@ -11,7 +11,7 @@ abstract class AbstractFileType {
 
     protected function writeFile($content, $file){
         $handle = fopen($file, 'w+');
-        fwrite($handle, $content . "\r\n");
+        fwrite($handle, $content);
         fclose($handle);
     }
 }

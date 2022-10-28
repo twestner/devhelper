@@ -6,7 +6,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Input extends AbstractType {
     public function getSqlCode($configuration) {
-        return $configuration->getField() . ' varchar(255) DEFAULT "" NOT NULL,';
+        return $configuration->getField() . ' varchar(255) DEFAULT \'\' NOT NULL,';
     }
 
     public function getPropertyCode(Configuration $configuration)

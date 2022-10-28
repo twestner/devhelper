@@ -14,6 +14,10 @@ class Locallang extends AbstractFileType
     }
 
     protected function getLanguageKey($languageId){
+        if(!isset($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper']['languageKeys'])){
+            $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper']['languageKeys'] = 'default,de';
+        }
+
         $given = GeneralUtility::trimExplode(',', $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper']['languageKeys'], 0);
         $languageKey = $given[$languageId];
         return $languageKey == 'default' ? '' : $languageKey . '.';
