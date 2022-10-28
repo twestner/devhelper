@@ -118,4 +118,18 @@ class Configuration {
     {
         $this->labels = $labels;
     }
+
+    public function getExtensionPath(){
+        $basePath = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper'] ?: 'packages/';
+        return $basePath . $this->getExtensionKey() . '/';
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableName(){
+        $flatExtensionKey = str_replace('_', '', $this->getExtensionKey());
+        $flatExtensionKey = strtolower($flatExtensionKey);
+        return 'tx_' . $flatExtensionKey . '_domain_model_' . strtolower($this->getModel());
+    }
 }

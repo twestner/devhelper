@@ -8,7 +8,7 @@ class Sql extends AbstractFileType
 {
     protected function getFileName($configuration, $languageId = 0)
     {
-        return $this->getExtensionPath($configuration) . 'ext_tables.sql';
+        return $configuration->getExtensionPath() . 'ext_tables.sql';
     }
 
     public function write($typeObject, $configuration)
@@ -30,7 +30,7 @@ class Sql extends AbstractFileType
     }
 
     protected function detectPositionAndFill(Configuration $configuration, $code, $filecontent){
-        $tablename = $this->getTableName($configuration);
+        $tablename = $configuration->getTableName();
 
         if(preg_match_all('/CREATE TABLE ' . $tablename . '(.*);./smU', $filecontent, $matches)){
             foreach($matches[0] as $match){

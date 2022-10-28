@@ -6,7 +6,7 @@ class Tca extends AbstractFileType
 {
     protected function getFileName($configuration, $languageId = 0)
     {
-        return $this->getExtensionPath($configuration) . 'Configuration/TCA/' . $this->getTableName($configuration) . '.php';
+        return $configuration->getExtensionPath() . 'Configuration/TCA/' . $configuration->getTableName() . '.php';
     }
 
     public function write($typeObject, $configuration)

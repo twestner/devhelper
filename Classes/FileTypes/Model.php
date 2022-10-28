@@ -8,7 +8,7 @@ class Model extends AbstractFileType
 {
     protected function getFileName($configuration, $languageId = 0)
     {
-        return $this->getExtensionPath($configuration) . 'Classes/Domain/Model/' . ucfirst($configuration->getModel()) . '.php';
+        return $configuration->getExtensionPath() . 'Classes/Domain/Model/' . ucfirst($configuration->getModel()) . '.php';
     }
 
     public function write($typeObject, $configuration)
