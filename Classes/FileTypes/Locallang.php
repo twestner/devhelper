@@ -7,7 +7,7 @@ class Locallang extends AbstractFileType
     protected function getFileName($configuration, $languageId = 0)
     {
         $languageKey = $this->getLanguageKey($languageId);
-        return $this->getExtensionPath() . 'Resources/Private/Language/' . $languageKey . 'locallang_db.xlf';
+        return $this->getExtensionPath($configuration) . 'Resources/Private/Language/' . $languageKey . 'locallang_db.xlf';
     }
 
     protected function getLanguageKey($languageId){
