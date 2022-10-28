@@ -37,15 +37,16 @@ class Model extends AbstractFileType
                 return $filecontent;
             }
         }
+        return $filecontent;
     }
 
     protected function detectGetterSetterPositionAndFill(Configuration $configuration, $code, $filecontent){
         $filecontentArray = explode(LF, trim($filecontent));
 
-        array_pop($filecontentArray);
+        $last = array_pop($filecontentArray);
 
         $filecontentArray[] = LF . $code;
-        $filecontentArray[] = '}';
+        $filecontentArray[] = $last;
 
         return implode(LF, $filecontentArray);
     }

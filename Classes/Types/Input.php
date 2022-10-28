@@ -37,4 +37,18 @@ class Input extends AbstractType {
         $this->' . $field . ' = $' . $field . ';
     }';
     }
+
+    public function getTcaShowitemCode(Configuration $configuration)
+    {
+        return ', ' . $configuration->getField();
+    }
+
+    public function getTcaFieldDefinition(Configuration $configuration)
+    {
+        $config = '\'type\' => \'input\',
+                \'size\' => 300,
+                \'eval\' => \'trim\'';
+
+        return $this->getTcaFieldDefinitionStructure($config, $configuration);
+    }
 }

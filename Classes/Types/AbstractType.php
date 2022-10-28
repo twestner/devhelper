@@ -14,4 +14,14 @@ abstract class AbstractType {
     public function getSqlMmCode(){
 
     }
+
+    public function getTcaFieldDefinitionStructure($config, Configuration $configuration){
+        return '        \'' . $configuration->getField() . '\' => [
+            \'label\' => \'LLL:EXT:' . $configuration->getExtensionKey() .
+            '/Resources/Private/Language/locallang_db.xlf:' . $configuration->getTableName() . '.' . $configuration->getField() . '\',
+            \'config\' => [
+                ' . $config . '
+            ]      
+        ],';
+    }
 }
