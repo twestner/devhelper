@@ -120,7 +120,7 @@ class Configuration {
     }
 
     public function getExtensionPath(){
-        $basePath = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper'] ?: 'packages/';
+        $basePath = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['devhelper']['baseExtensionPath'] ?: 'packages/';
         return $basePath . $this->getExtensionKey() . '/';
     }
 

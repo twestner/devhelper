@@ -11,6 +11,16 @@ abstract class AbstractType {
     abstract public function getTcaShowitemCode(Configuration $configuration);
     abstract public function getTcaFieldDefinition(Configuration $configuration);
 
+    public function getLocallangCode(Configuration $configuration, $languageId){
+        $key = $configuration->getTableName() . '.' . $configuration->getField();
+
+        $translation = $languageId ? LF . '                <target>' . $configuration->getLabels()[$languageId] . '</target>' : '';
+
+        return '            <trans-unit id="' . $key . '" resname="' . $key . '">
+                <source>' . $configuration->getLabels()[0] . '</source>' . $translation . '
+            </trans-unit>';
+    }
+
     public function getSqlMmCode(){
 
     }

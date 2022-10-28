@@ -65,8 +65,8 @@ class AddFieldCommand extends Command
     {
         //$this->fileWriterService->registerFileType(Sql::class);
         //$this->fileWriterService->registerFileType(Model::class);
-        $this->fileWriterService->registerFileType(Tca::class);
-        //$this->fileWriterService->registerFileType(Locallang::class);
+        //$this->fileWriterService->registerFileType(Tca::class);
+        $this->fileWriterService->registerFileType(Locallang::class);
 
         /** @var Configuration $configuration */
         $configuration = GeneralUtility::makeInstance(Configuration::class, $input);

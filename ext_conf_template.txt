@@ -1,2 +1,5 @@
   # cat=basic/enable; type=string; label=basepath of your extensions
   baseExtensionPath = packages/
+
+  # cat=basic/enable; type=string; label=basepath of your extensions
+  languageKeys = default,de
