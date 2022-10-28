@@ -63,8 +63,8 @@ class AddFieldCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->fileWriterService->registerFileType(Sql::class);
-        //$this->fileWriterService->registerFileType(Model::class);
+        //$this->fileWriterService->registerFileType(Sql::class);
+        $this->fileWriterService->registerFileType(Model::class);
         //$this->fileWriterService->registerFileType(Tca::class);
         //$this->fileWriterService->registerFileType(Locallang::class);
 
