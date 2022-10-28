@@ -23,6 +23,11 @@ class Locallang extends AbstractFileType
     {
         foreach($configuration->getLabels() as $key => $label){
             $fileName = $this->getFileName($configuration, $key);
+
+            if(!file_exists($fileName)){
+                continue;
+            }
+
             $filecontent = file_get_contents($fileName);
 
             $code = $typeObject->getLocallangCode($configuration, $key);
