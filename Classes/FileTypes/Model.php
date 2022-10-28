@@ -23,7 +23,7 @@ class Model extends AbstractFileType
 
         $code = $typeObject->getGetterAndSetterCode($configuration);
         if($code){
-            $filecontent = $this->detectGetterSetterPositionForMmAndFill($configuration, $code, $filecontent);
+            $filecontent = $this->detectGetterSetterPositionAndFill($configuration, $code, $filecontent);
         }
 
         $this->writeFile($filecontent, $fileName);
@@ -39,7 +39,7 @@ class Model extends AbstractFileType
         }
     }
 
-    protected function detectGetterSetterPositionForMmAndFill(Configuration $configuration, $code, $filecontent){
+    protected function detectGetterSetterPositionAndFill(Configuration $configuration, $code, $filecontent){
         $filecontentArray = explode(LF, trim($filecontent));
 
         array_pop($filecontentArray);
