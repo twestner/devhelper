@@ -1,0 +1,30 @@
+{
+	"name": "twestner/devhelper",
+	"type": "typo3-cms-extension",
+	"description": "DevHelper for T3devs",
+	"authors": [
+		{
+			"name": "Tina Westner",
+			"email": "info@tina-westner.de",
+			"role": "Developer",
+			"homepage": "https://www.tina-westner.de/"
+		}
+	],
+	"license": "GPL-2.0+",
+	"require": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Tw\\Devhelper\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "devhelper"
+		}
+	},
+	"replace": {
+		"devhelper": "self.version"
+	}
+}
+

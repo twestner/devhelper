@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Tw\Devhelper\:
+    resource: '../Classes/*'
+
+  Tw\Devhelper\Command\AddFieldCommand:
+    tags:
+      - name: 'console.command'
+        command: 'devhelper:addfield'
+        description: 'adds a field to a given model inkl. tca, sql, attributes etc.'
+
