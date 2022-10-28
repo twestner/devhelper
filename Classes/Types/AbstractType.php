@@ -8,8 +8,12 @@ abstract class AbstractType {
     abstract public function getSqlCode(Configuration $configuration);
     abstract public function getPropertyCode(Configuration $configuration);
     abstract public function getGetterAndSetterCode(Configuration $configuration);
-    abstract public function getTcaShowitemCode(Configuration $configuration);
     abstract public function getTcaFieldDefinition(Configuration $configuration);
+
+    public function getTcaShowitemCode(Configuration $configuration)
+    {
+        return ', ' . $configuration->getField();
+    }
 
     public function getLocallangCode(Configuration $configuration, $languageId){
         $key = $configuration->getTableName() . '.' . $configuration->getField();
