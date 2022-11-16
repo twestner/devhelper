@@ -18,7 +18,7 @@ class Date extends AbstractType {
     }
     public function getGetterAndSetterCode(Configuration $configuration)
     {
-        $field = $configuration->getField();
+        $field = GeneralUtility::underscoredToUpperCamelCase($configuration->getField());
         $ucField = ucfirst($field);
 
         return '    /**
