@@ -14,7 +14,7 @@ class Integer extends AbstractType {
         return '/**
      * @var integer
      */
-    protected $' . GeneralUtility::underscoredToLowerCamelCase($configuration->getField()) . ' = \'\';';
+    protected $' . GeneralUtility::underscoredToLowerCamelCase($configuration->getField()) . ' = 0;';
     }
     public function getGetterAndSetterCode(Configuration $configuration)
     {
