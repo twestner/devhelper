@@ -18,8 +18,8 @@ class Integer extends AbstractType {
     }
     public function getGetterAndSetterCode(Configuration $configuration)
     {
-        $field = GeneralUtility::underscoredToUpperCamelCase($configuration->getField());
-        $ucField = ucfirst($field);
+        $ucField = GeneralUtility::underscoredToUpperCamelCase($configuration->getField());
+        $field = lcfirst($ucField);
 
         return '    /**
      * @return int
