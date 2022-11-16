@@ -12,7 +12,7 @@ class Integer extends AbstractType {
     public function getPropertyCode(Configuration $configuration)
     {
         return '/**
-     * @var integer
+     * @var int
      */
     protected $' . GeneralUtility::underscoredToLowerCamelCase($configuration->getField()) . ' = 0;';
     }
@@ -22,7 +22,7 @@ class Integer extends AbstractType {
         $ucField = ucfirst($field);
 
         return '    /**
-     * @return integer
+     * @return int
      */
     public function get' . $ucField . '()
     {
@@ -30,7 +30,7 @@ class Integer extends AbstractType {
     }
 
     /**
-     * @param integer $' . $field . '
+     * @param int $' . $field . '
      */
     public function set' . $ucField . '($' . $field . ')
     {
