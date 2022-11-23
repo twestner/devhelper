@@ -128,6 +128,10 @@ class Configuration {
      * @return string
      */
     public function getTableName(){
+        if(!$this->getModel()){
+            return '';
+        }
+
         $flatExtensionKey = str_replace('_', '', $this->getExtensionKey());
         $flatExtensionKey = strtolower($flatExtensionKey);
         return 'tx_' . $flatExtensionKey . '_domain_model_' . strtolower($this->getModel());
