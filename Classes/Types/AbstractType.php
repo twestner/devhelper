@@ -16,7 +16,8 @@ abstract class AbstractType {
     }
 
     public function getLocallangCode(Configuration $configuration, $languageId){
-        $key = $configuration->getTableName() . '.' . $configuration->getField();
+        $table = $configuration->getTableName() ? $configuration->getTableName() . '.' : '';
+        $key = $table . $configuration->getField();
 
         $translation = $languageId ? LF . '                <target>' . $configuration->getLabels()[$languageId] . '</target>' : '';
 

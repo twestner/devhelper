@@ -14,3 +14,11 @@ services:
         description: 'adds a field to a given model inkl. tca, sql, attributes etc.'
     arguments:
       $fileWriterService: '@Tw\Devhelper\Service\FileWriterService'
+
+  Tw\Devhelper\Command\AddLabelCommand:
+    tags:
+      - name: 'console.command'
+        command: 'devhelper:addlabel'
+        description: 'adds a label to locallang'
+    arguments:
+      $fileWriterService: '@Tw\Devhelper\Service\FileWriterService'

@@ -33,9 +33,9 @@ class Configuration {
 
     public function __construct(InputInterface $input){
         $this->extensionKey = $input->getArgument('extensionKey');
-        $this->model = $input->getArgument('model');
-        $this->field = $input->getArgument('field');
-        $this->type = $input->getArgument('type');
+        $this->model = $input->hasArgument('model') ? $input->getArgument('model') : '';
+        $this->field = $input->hasArgument('field') ? $input->getArgument('field') : '';
+        $this->type = $input->hasArgument('type') ? $input->getArgument('type') : '';
         $this->labels = GeneralUtility::trimExplode(',', $input->getArgument('labels'));
     }
 

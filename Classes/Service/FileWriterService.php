@@ -27,6 +27,11 @@ class FileWriterService
     }
 
     protected function getTypeObject($typeString){
+        // write only label e.g.
+        if(!$typeString){
+            $typeString = 'NoType';
+        }
+
         $typeString = ucfirst($typeString);
 
         if(!class_exists('Tw\\Devhelper\\Types\\' . $typeString)){
