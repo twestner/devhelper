@@ -35,9 +35,9 @@ class Sql extends AbstractFileType
         if(preg_match_all('/CREATE TABLE ' . $tablename . '(.*);./smU', $filecontent, $matches)){
             foreach($matches[0] as $match){
                 if(strpos($match, 'PRIMARY KEY')){
-                    $replacement = str_replace('PRIMARY KEY', LF . $code . LF . LF . 'PRIMARY KEY', $match);
+                    $replacement = str_replace('PRIMARY KEY', $code . LF . LF . '    PRIMARY KEY', $match);
                 } else {
-                    $replacement = str_replace(');', LF . $code . LF . ');', $match);
+                    $replacement = str_replace(');', '    ' . $code . LF . ');', $match);
                 }
                 $filecontent = str_replace($match, $replacement, $filecontent);
             }
