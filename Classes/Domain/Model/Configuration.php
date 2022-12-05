@@ -31,12 +31,18 @@ class Configuration {
      */
     protected $labels = [];
 
+    /**
+     * @var bool
+     */
+    protected $isFe = false;
+
     public function __construct(InputInterface $input){
         $this->extensionKey = $input->getArgument('extensionKey');
         $this->model = $input->hasArgument('model') ? $input->getArgument('model') : '';
         $this->field = $input->hasArgument('field') ? $input->getArgument('field') : '';
         $this->type = $input->hasArgument('type') ? $input->getArgument('type') : '';
         $this->labels = GeneralUtility::trimExplode(',', $input->getArgument('labels'));
+        $this->isFe = $input->hasArgument('fe') ? $input->getArgument('fe') : false;
     }
 
     /**
@@ -135,5 +141,21 @@ class Configuration {
         $flatExtensionKey = str_replace('_', '', $this->getExtensionKey());
         $flatExtensionKey = strtolower($flatExtensionKey);
         return 'tx_' . $flatExtensionKey . '_domain_model_' . strtolower($this->getModel());
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFe(): bool
+    {
+        return $this->isFe;
+    }
+
+    /**
+     * @param bool $isFe
+     */
+    public function setIsFe(bool $isFe): void
+    {
+        $this->isFe = $isFe;
     }
 }

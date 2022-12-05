@@ -53,6 +53,7 @@ class AddLabelCommand extends Command
         $this->addArgument('extensionKey', InputArgument::REQUIRED, 'Extension Key of your extension');
         $this->addArgument('field', InputArgument::REQUIRED, 'Name of the field');
         $this->addArgument('labels', InputArgument::REQUIRED, 'Labels');
+        $this->addArgument('fe', InputArgument::OPTIONAL, 'use FE-file');
         $this->setDescription('adds a label to locallang-file');
     }
 
