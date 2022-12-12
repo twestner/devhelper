@@ -49,7 +49,7 @@ vendor/bin/typo3cms devhelper:addfield myextension mymodel new_field checkbox "l
 
 **labels:** add your labels separated by pipe, the order of your languages can be defined in extension-configuration
 
-tested with some extensions, created by the extension builder.
+tested with some extensions, mainly created by the extension builder.
 
 
 ### Command addlabel
@@ -71,7 +71,9 @@ vendor/bin/typo3cms devhelper:addlabel myextension "Search now, Jetzt suchen" 1
 * 1 => adds to locallang.xlf
 * 0 / no value => adds to locallang_db.xlf
 
+tested with some extensions, mainly created by the extension builder.
 
 ### Extension configuration
 baseExtensionPath = packages/
+
 languageKeys = default,de
