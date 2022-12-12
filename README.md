@@ -29,6 +29,10 @@ helps to add fields to your model in your own extension.
 
 **vendor/bin/typo3cms devhelper:addfield myextension lowercasemodel dbfieldname fieldtype "label_default|label_de"**
 
+e.g.
+
+vendor/bin/typo3cms devhelper:addfield myextension mymodel new_field checkbox "label of new field|Name meines neuen Feldes"
+
 **myextension:** use your extension key
 
 **lowercasemodel:** use the lowercase name of the model, e.g. product
@@ -53,6 +57,9 @@ tested with some extensions, created by the extension builder.
 adds locallang-entry in default and translation (for fe or be)
 
 **vendor/bin/typo3cms devhelper:addlabel myextension labelkey "label_default|label_de" isFe**
+
+vendor/bin/typo3cms devhelper:addlabel myextension "name of my palette, Name meiner Palette im BE" 0
+vendor/bin/typo3cms devhelper:addlabel myextension "Search now, Jetzt suchen" 1
 
 **myextension:** use your extension key
 
