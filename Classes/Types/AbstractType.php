@@ -30,13 +30,19 @@ abstract class AbstractType {
 
     }
 
-    public function getTcaFieldDefinitionStructure($config, Configuration $configuration){
+    public function getTcaFieldDefinitionStructure($config, Configuration $configuration, $isArray = true){
+        if($isArray){
+            $configCode = '\'config\' => [
+                ' . $config . '
+            ]';
+        } else {
+            $configCode = '\'config\' => ' . $config;
+        }
+
         return '        \'' . $configuration->getField() . '\' => [
             \'label\' => \'LLL:EXT:' . $configuration->getExtensionKey() .
             '/Resources/Private/Language/locallang_db.xlf:' . $configuration->getTableName() . '.' . $configuration->getField() . '\',
-            \'config\' => [
-                ' . $config . '
-            ]      
+            ' . $configCode . '      
         ],';
     }
 }

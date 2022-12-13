@@ -46,6 +46,10 @@ vendor/bin/typo3cms devhelper:addfield myextension mymodel new_field checkbox "l
 * integer
 * rte
 * text
+* file (one file)
+* files (more files)
+* image (one image)
+* images (more images)
 
 **labels:** add your labels separated by pipe, the order of your languages can be defined in extension-configuration
 
