@@ -15,7 +15,7 @@
 ```
 
 ```
-composer require twestner/devhelper
+composer require twestner/devhelper:dev-master --dev
 ```
 
 ### Command addfield
