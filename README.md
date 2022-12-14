@@ -43,6 +43,7 @@ vendor/bin/typo3cms devhelper:addfield myextension mymodel new_field checkbox "l
 * checkbox
 * date
 * input
+* email  
 * integer
 * rte
 * text
