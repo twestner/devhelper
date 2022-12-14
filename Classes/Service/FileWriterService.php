@@ -35,7 +35,7 @@ class FileWriterService
         $typeString = ucfirst($typeString);
 
         if(!class_exists('Tw\\Devhelper\\Types\\' . $typeString)){
-            throw \Exception('type class does not exist');
+            throw new \Exception('type class does not exist');
         }
 
         return GeneralUtility::makeInstance('Tw\\Devhelper\\Types\\' . $typeString);
